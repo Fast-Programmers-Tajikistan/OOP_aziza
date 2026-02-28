@@ -13,5 +13,5 @@ namespace ООП_1.Entities
         public string? Email { get; set; }
         public required string Login { get; set; }
         public required string Password { get; set; }
-    } 
+    }
 }

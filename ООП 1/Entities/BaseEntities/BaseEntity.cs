@@ -1,4 +1,6 @@
-﻿namespace ООП_1.Entities.BaseEntities
+﻿using System;
+
+namespace ООП_1.Entities.BaseEntities
 {
     public abstract class BaseEntity
     {
