@@ -16,7 +16,6 @@ namespace ООП_1.Controllers
                 var users = userService.GetAllUsers();
                 return Task.FromResult<ActionResult>(Ok(users));
             }
-
             [HttpPost]
             public Task<ActionResult> CreateUser(CreateUserRequest request)
             {
