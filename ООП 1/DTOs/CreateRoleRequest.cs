@@ -1,6 +1,6 @@
-﻿namespace ООП_1.Entities.BaseEntities
+﻿namespace ООП_1.DTOs
 {
-    public class Role : BaseEntity
+    public class CreateRoleRequest
     {
         public required string Name { get; set; }
         public string? Description { get; set; }
