@@ -12,7 +12,7 @@ namespace ООП_1.Controllers
         public async Task<IActionResult> CreateRole([FromBody] CreateRoleRequest request)
         {
             var role = await roleService.CreateRole(request);
-
+            
             return Ok(role);
         }
         [HttpPut]
