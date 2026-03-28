@@ -11,7 +11,6 @@ public class UserService : IUserService
     {
         _context = context;
     }
-
     public Task<List<UserDto>> GetAllUsers()
     {
         var users = _context.Users.Select(u => new UserDto
@@ -30,6 +29,7 @@ public class UserService : IUserService
 
     public async Task<Guid> CreateUser(CreateUserRequest user)
     {
+        var passwordHash = BCrypt.Net.BCrypt.HashPassword(user.Password);
         var createUser = new User
         {
             Id = Guid.NewGuid(),
@@ -40,7 +40,7 @@ public class UserService : IUserService
             Address = user.Address,
             Email = user.Email,
             Login = user.Login,
-            Password = user.Password
+            Password = passwordHash
         };
         _context.Users.Add(createUser);
 
@@ -66,3 +66,5 @@ public class UserService : IUserService
        ?? throw new Exception("User not found");
     }
 }
+
+
