@@ -1,0 +1,6 @@
+@Polimorphizm_HostAddress = http://localhost:5013
+
+GET {{Polimorphizm_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

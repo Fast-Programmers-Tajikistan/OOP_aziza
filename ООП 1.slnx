@@ -1,5 +1,7 @@
 <Solution>
+  <Project Path="Abstraction/Abstraction.csproj" Id="5d1aafc1-6902-48c7-b9e7-0006458cfe82" />
   <Project Path="Encapsulation/Encapsulation.csproj" Id="6d5e6326-9238-466a-a50d-c74da28046c7" />
   <Project Path="OOP_console/OOP_console.csproj" Id="883a502c-802d-4bea-8cd4-e794281cd698" />
+  <Project Path="Polimarphizm/Polimarphizm.csproj" Id="3659e48d-6cf1-4d6a-8ddb-b2b197ebdd06" />
   <Project Path="ООП 1/ООП 1.csproj" />
 </Solution>

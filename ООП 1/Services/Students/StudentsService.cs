@@ -1,15 +1,19 @@
-﻿using ООП_1.DataBase;
+﻿
+
+using ООП_1.DataBase;
 using ООП_1.DTOs;
 using ООП_1.Entities;
 
 namespace ООП_1.Services.Students;
 
-public class StudentsService (
+public class StudentsService(
     UserDbContext context
     ) : IStudentsService
 {
     public async Task<Guid> CreateStudent(CreateStudentRequest request)
     {
+        var passwordHash = BCrypt.Net.BCrypt.HashPassword(request.Password);
+
         var groupExists = context.Groups
             .Any(g => g.Id == request.GroupId);
 
@@ -32,11 +36,13 @@ public class StudentsService (
             PhoneNumber = request.PhoneNumber,
             Email = request.Email,
             Login = request.Login,
-            Password = request.Password,
+            Password = passwordHash,
             GroupId = request.GroupId,
         };
 
         context.Students.Add(student);
+
+        await context.SaveChangesAsync();
 
         return student.Id;
     }

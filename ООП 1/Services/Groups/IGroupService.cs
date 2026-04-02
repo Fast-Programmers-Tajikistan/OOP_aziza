@@ -4,6 +4,6 @@ namespace ООП_1.Services.Groups
 {
     public interface IGroupService
     {
-            Task<Guid> CreateGroup(CreateGroupRequest request);
-        }
+        Task<Guid> CreateGroup(CreateGroupRequest request, CancellationToken cancellationToken);
     }
+}

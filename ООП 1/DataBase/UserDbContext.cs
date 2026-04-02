@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using ООП_1.Entities;
 using ООП_1.Entities.BaseEntities;
 using Group = ООП_1.Entities.Group;
@@ -48,6 +49,7 @@ namespace ООП_1.DataBase
         }
     }
 }
+
 
 
 

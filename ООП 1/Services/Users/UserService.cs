@@ -1,4 +1,5 @@
-﻿using ООП_1.DataBase;
+﻿
+using ООП_1.DataBase;
 using ООП_1.DTOs;
 using ООП_1.Entities;
 
@@ -11,6 +12,7 @@ public class UserService : IUserService
     {
         _context = context;
     }
+
     public Task<List<UserDto>> GetAllUsers()
     {
         var users = _context.Users.Select(u => new UserDto
@@ -30,6 +32,7 @@ public class UserService : IUserService
     public async Task<Guid> CreateUser(CreateUserRequest user)
     {
         var passwordHash = BCrypt.Net.BCrypt.HashPassword(user.Password);
+
         var createUser = new User
         {
             Id = Guid.NewGuid(),
@@ -43,6 +46,7 @@ public class UserService : IUserService
             Password = passwordHash
         };
         _context.Users.Add(createUser);
+        await _context.SaveChangesAsync();
 
         return createUser.Id;
     }
@@ -66,5 +70,3 @@ public class UserService : IUserService
        ?? throw new Exception("User not found");
     }
 }
-
-
